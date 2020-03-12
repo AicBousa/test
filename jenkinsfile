@@ -8,4 +8,11 @@ pipeline {
          }
       }
    }
+   
+    post {
+        always {
+           archiveArtifacts 'artifact.txt'
+        }
+    }
+   
 }
