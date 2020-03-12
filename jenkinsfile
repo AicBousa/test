@@ -7,11 +7,14 @@ pipeline {
             echo 'Hello World'
          }
       }
-   }
+      stage('Build artifact') {
+         steps {
+            sh """ date >> artifact.txt """
+         }
+      }
    
     post {
         always {
-             sh """ date >> artifact.txt """
            archiveArtifacts 'artifact.txt'
         }
     }
